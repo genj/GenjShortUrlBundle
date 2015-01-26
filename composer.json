@@ -1,0 +1,36 @@
+{
+    "name":        "genj/short-url-bundle",
+    "type":        "symfony-bundle",
+    "description": "Symfony Short Url bundle",
+    "keywords":    ["genj", "short", "shortener", "redirect", "routing", "url", "symfony", "bundle"],
+    "license":     "MIT",
+
+    "authors": [
+        {
+            "name":  "Choong Wei Tjeng",
+            "email": "choong.wei.tjeng@genj.nl"
+        },
+        {
+            "name":  "Nico Kaag",
+            "email": "nico.kaag@genj.nl"
+        },
+        {
+            "name":  "Susan Lau",
+            "email": "susan.lau@genj.nl"
+        }
+    ],
+
+    "require": {
+        "symfony/symfony": "2.5.*",
+        "sensio/framework-extra-bundle": "~3.0",
+        "gedmo/doctrine-extensions": "~2.3"
+    },
+
+    "minimum-stability": "dev",
+
+    "autoload": {
+        "psr-0": {
+            "Genj\\ShortUrlBundle\\": "src/"
+        }
+    }
+}
