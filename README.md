@@ -61,3 +61,4 @@ Add a new record to your database. Example:
 ### My redirect is not working through app.php, but it works through app_dev.php
 
 If you have enabled caching, it can happen that a 404 response is stored in the http cache, so clear your caches. The redirect requests themselves have private caching headers.
+

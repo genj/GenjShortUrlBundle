@@ -7,7 +7,6 @@ use Genj\ShortUrlBundle\Entity\ShortUrlRepository;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
-use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 
 /**
  * Class RequestListener
