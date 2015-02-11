@@ -45,7 +45,7 @@ class ShortUrl
     protected $httpStatusCode;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(name="hit_count", type="integer", nullable=true)
      */
     protected $hitCount;
 
