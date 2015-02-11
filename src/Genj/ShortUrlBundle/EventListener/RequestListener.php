@@ -74,9 +74,9 @@ class RequestListener
         $response = new RedirectResponse($target, $httpStatusCode);
         $event->setResponse($response);
 
-        // Increment count
-        $count = $shortUrl->getCount();
-        $shortUrl->setCount($count + 1);
+        // Increment hitCount
+        $hitCount = $shortUrl->getHitCount();
+        $shortUrl->setHitCount($hitCount + 1);
 
         $this->entityManager->persist($shortUrl);
         $this->entityManager->flush();

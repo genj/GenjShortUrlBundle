@@ -47,7 +47,7 @@ class ShortUrl
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    protected $count;
+    protected $hitCount;
 
     /**
      * @ORM\Column(name="publish_at", type="datetime")
@@ -154,27 +154,27 @@ class ShortUrl
     }
 
     /**
-     * Set count
+     * Set hitCount
      *
-     * @param integer $count
+     * @param integer $hitCount
      *
      * @return ShortUrl
      */
-    public function setCount($count)
+    public function setHitCount($hitCount)
     {
-        $this->count = $count;
+        $this->hitCount = $hitCount;
 
         return $this;
     }
 
     /**
-     * Get count
+     * Get hitCount
      *
      * @return integer
      */
-    public function getCount()
+    public function getHitCount()
     {
-        return $this->count;
+        return $this->hitCount;
     }
 
     /**
