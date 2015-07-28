@@ -7,6 +7,7 @@ use Genj\ShortUrlBundle\Entity\ShortUrlRepository;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+use Symfony\Component\HttpKernel\HttpKernelInterface;
 
 /**
  * Class RequestListener
@@ -47,6 +48,11 @@ class RequestListener
      */
     public function onKernelRequest(GetResponseEvent $event)
     {
+        // Only do something if we are on the master request
+        if ($event->getRequestType() !== HttpKernelInterface::MASTER_REQUEST) {
+            return;
+        }
+
         $source   = $this->request->getPathInfo();
         $shortUrl = $this->shortUrlRepository->retrievePublicBySource($source);
 
