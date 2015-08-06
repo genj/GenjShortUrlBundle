@@ -7,14 +7,14 @@ use Genj\ShortUrlBundle\Entity\ShortUrlRepository;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
+use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 
 /**
- * Class RequestListener
+ * Class KernelListener
  *
  * @package GenjShortUrlBundle\EventListener
  */
-class RequestListener
+class KernelListener
 {
     /**
      * @var Request
@@ -44,12 +44,33 @@ class RequestListener
     }
 
     /**
+     * Capture normal requests.
+     *
      * @param GetResponseEvent $event
      */
     public function onKernelRequest(GetResponseEvent $event)
     {
+        $this->handleShortUrl($event);
+    }
+
+    /**
+     * If Symfony needs to render an error page, that is an internal subrequest, so we are no longer in the master
+     * request by the time we get to onKernelRequest. So we need to do the same thing for exception requests.
+     *
+     * @param GetResponseForExceptionEvent $event
+     */
+    public function onKernelException(GetResponseForExceptionEvent $event)
+    {
+        $this->handleShortUrl($event);
+    }
+
+    /**
+     * @param GetResponseEvent $event
+     */
+    protected function handleShortUrl(GetResponseEvent $event)
+    {
         // Only do something if we are on the master request
-        if ($event->getRequestType() !== HttpKernelInterface::MASTER_REQUEST) {
+        if ($event->isMasterRequest()) {
             return;
         }
 

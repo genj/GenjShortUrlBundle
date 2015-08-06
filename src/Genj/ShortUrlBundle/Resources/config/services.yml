@@ -9,8 +9,8 @@ services:
         class: %genj_short_url.entity.short_url_repository.class%
         arguments: [%genj_short_url.entity.short_url.class%]
 
-    genj_short_url.event_listener.request_listener:
-        class: Genj\ShortUrlBundle\EventListener\RequestListener
+    genj_short_url.event_listener.kernel_listener:
+        class: Genj\ShortUrlBundle\EventListener\KernelListener
         scope: request
         arguments:
             - @request
@@ -18,3 +18,4 @@ services:
             - @genj_short_url.entity.short_url_repository
         tags:
             - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
