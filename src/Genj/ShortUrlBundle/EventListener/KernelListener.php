@@ -70,7 +70,7 @@ class KernelListener
     protected function handleShortUrl(GetResponseEvent $event)
     {
         // Only do something if we are on the master request
-        if ($event->isMasterRequest()) {
+        if (!$event->isMasterRequest()) {
             return;
         }
 
