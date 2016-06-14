@@ -11,9 +11,8 @@ services:
 
     genj_short_url.event_listener.kernel_listener:
         class: Genj\ShortUrlBundle\EventListener\KernelListener
-        scope: request
         arguments:
-            - @request
+            - @request_stack
             - @doctrine.orm.entity_manager
             - @genj_short_url.entity.short_url_repository
         tags:

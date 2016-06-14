@@ -6,6 +6,7 @@ use Doctrine\ORM\EntityManager;
 use Genj\ShortUrlBundle\Entity\ShortUrlRepository;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 
@@ -32,13 +33,13 @@ class KernelListener
     protected $shortUrlRepository;
 
     /**
-     * @param Request            $request
+     * @param RequestStack       $requestStack
      * @param EntityManager      $entityManager
      * @param ShortUrlRepository $shortUrlRepository
      */
-    public function __construct(Request $request, EntityManager $entityManager, ShortUrlRepository $shortUrlRepository)
+    public function __construct(RequestStack $requestStack, EntityManager $entityManager, ShortUrlRepository $shortUrlRepository)
     {
-        $this->request            = $request;
+        $this->request            = $requestStack->getCurrentRequest();
         $this->entityManager      = $entityManager;
         $this->shortUrlRepository = $shortUrlRepository;
     }
