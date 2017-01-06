@@ -23,7 +23,8 @@ class ShortUrlRepository extends EntityRepository
         $query = $this->createQueryBuilder('s')
             ->where('s.source = :source')
             ->andWhere('s.publishAt <= :publishAt')
-            ->andWhere('(s.expiresAt IS NULL OR s.expiresAt >= :expiresAt)');
+            ->andWhere('(s.expiresAt IS NULL OR s.expiresAt >= :expiresAt)')
+            ->setMaxResults(1);
 
         $query = $query->getQuery();
 
