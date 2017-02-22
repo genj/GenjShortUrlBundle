@@ -2,7 +2,7 @@
     "name":        "genj/short-url-bundle",
     "type":        "symfony-bundle",
     "description": "Symfony Short Url bundle",
-    "keywords":    ["genj", "short", "shortener", "redirect", "routing", "url", "symfony", "bundle"],
+    "keywords":    ["php", "symfony", "bundle", "symfony-bundle", "genj", "short", "shortener", "redirect", "routing", "url"],
     "license":     "MIT",
 
     "authors": [
