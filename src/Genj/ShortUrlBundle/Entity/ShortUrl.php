@@ -40,34 +40,34 @@ class ShortUrl
     protected $target;
 
     /**
-     * @ORM\Column(name="http_status_code", type="integer")
+     * @ORM\Column(type="integer")
      */
     protected $httpStatusCode;
 
     /**
-     * @ORM\Column(name="hit_count", type="integer", nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
     protected $hitCount;
 
     /**
-     * @ORM\Column(name="publish_at", type="datetime")
+     * @ORM\Column(type="datetime")
      */
     protected $publishAt;
 
     /**
-     * @ORM\Column(name="expires_at", type="datetime", nullable=true)
+     * @ORM\Column(type="datetime", nullable=true)
      */
     protected $expiresAt;
 
     /**
      * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(name="created_at", type="datetime")
+     * @ORM\Column(type="datetime")
      */
     protected $createdAt;
 
     /**
      * @Gedmo\Timestampable(on="update")
-     * @ORM\Column(name="updated_at", type="datetime")
+     * @ORM\Column(type="datetime")
      */
     protected $updatedAt;
 
