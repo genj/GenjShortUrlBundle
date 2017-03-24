@@ -280,6 +280,6 @@ class ShortUrl
      */
     public function __toString()
     {
-        return 'Redirect ' . $this->getSource() . ' to ' . $this->getTarget();
+        return (string) 'Redirect ' . $this->getSource() . ' to ' . $this->getTarget();
     }
 }
